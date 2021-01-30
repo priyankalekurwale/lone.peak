@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name = "PodiumTests" parallel = "false">
+    <test name = "LocalMachineDemo">
+        <classes>
+            <class name="com.podium.web.tests.PodiumLandingPageIT"/>
+        </classes>
+    </test>
+    <test name = "DockerDemo">
+        <classes>
+            <class name="com.podium.web.tests.PodiumLandingPageDockerIT"/>
+        </classes>
+    </test>
+</suite>
