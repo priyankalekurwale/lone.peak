@@ -1,8 +1,8 @@
 # lone.peak
 This project contains UI Automation tests for https://www.podium.com/ and tests are executed on Google Chrome Browser 
 There are 2 tests files
-PodiumLandingPageIT : This executes tests on local machine
-PodiumLandingPageDockerIT : This executes tests on Docker container
+1. PodiumLandingPageIT : This executes tests on local machine
+2. PodiumLandingPageDockerIT : This executes tests on Docker container
 Project is share don Github here : 
 # To Run tests on Local Machine from Command line
 # Pre-Requisites
@@ -13,8 +13,8 @@ Below apps needs to be installed before executing tests
 # Steps to run tests
 1. Download project from Github 
 2. Navigate to project directory /lone.peak
-3. Verify is mvn is accessible from this folder with command : mvn -version
-4. Execute this command to run tests : mvn test -D="LocalMachineDemo"  
+3. Verify is maven is accessible from this folder with command : mvn -version
+4. Execute this command to run tests : mvn test -Dclass="com.podium.web.tests.PodiumLandingPageIT"  
 5. Test reports directory : Project home : lone.peak\target\surefire-reports Open index.html
 
 
@@ -33,6 +33,6 @@ Below apps needs to be installed before executing tests
 4. Validate docker image is created : docker images
 5. Start container using the image : docker run -d -p 4444:4444 -v /dev/shm:/dev/shm lonePeak:latest
 6. validate container is running : docker ps
-3. Execute this command to run tests : mvn test -D="DockerDemo"  
+3. Execute this command to run tests : mvn test -Dclass="com.podium.web.tests.PodiumLandingPageDockerIT"  
 5. Test reports directory : Project home : lone.peak\target\surefire-reports Open index.html
 

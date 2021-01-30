@@ -1,7 +1,12 @@
 package com.podium.web.tests;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -9,16 +14,26 @@ import org.testng.asserts.SoftAssert;
 import com.podium.web.pages.PodiumLandingPage;
 import com.podium.web.utils.TestUtils;
 
-public class PodiumLandingPageIT extends LocalTestSetUp {
+public class PodiumLandingPageIT {
     SoftAssert report = new SoftAssert();
     PodiumLandingPage landingPage;
+    WebDriver driver;
 
     // Executes before each test method
     @BeforeMethod
     public void setUp() {
+        driver = new ChromeDriver();
+        // Maximize browser window
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.get("https://www.podium.com");
         landingPage = PageFactory.initElements(driver, PodiumLandingPage.class);
     }
 
+    @AfterMethod
+    public void tearDownTest() {
+        driver.quit();
+    }
     /**
      * Validates if home page title and if Podium logo is displayed
      */
